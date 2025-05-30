@@ -1,37 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Meu Filho</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeria do Ravi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #d4f1f9, #a8dadc, #f0efeb);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #555;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeInDown 2s ease forwards;
+      color: #5a6a71;
+    }
+
+    .btn-entrar {
+      font-size: 1.5rem;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #a3c4bc, #729ea1);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(115, 143, 137, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 2s ease forwards;
+    }
+
+    .btn-entrar:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 25px rgba(115, 143, 137, 0.6);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Elementos de fundo animados */
+    .circulo {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: flutuar 10s infinite ease-in-out alternate;
+    }
+
+    .circulo1 {
+      width: 200px;
+      height: 200px;
+      background: #c1dfe6;
+      top: 10%;
+      left: 20%;
+    }
+
+    .circulo2 {
+      width: 300px;
+      height: 300px;
+      background: #dbe9e4;
+      bottom: 15%;
+      right: 10%;
+    }
+
+    @keyframes flutuar {
+      from { transform: translateY(0px) rotate(0deg); }
+      to { transform: translateY(20px) rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
 
-    <section>
-        <h1>Chá de Bebê e Gravidez</h1>
-        <div class="galeria">
-            <img src="imagens/cha1.jpg" alt="Foto do chá de bebê">
-            <img src="imagens/gravidez1.jpg" alt="Foto grávida">
-            <img src="imagens/gravidez2.jpg" alt="Outra foto grávida">
-        </div>
-    </section>
+  <div class="circulo circulo1"></div>
+  <div class="circulo circulo2"></div>
 
-    <section>
-        <h1>Depois do Nascimento</h1>
-        <div class="galeria">
-            <img src="Imagens/cha-de-bebe1.jpeg" alt="Foto do bebê">
-            <img src="imagens/nascido2.jpg" alt="Outra foto do bebê">
-            <img src="imagens/nascido3.jpg" alt="Mais uma foto do bebê">
-        </div>
-    </section>
+  <h1>Seja bem-vindo à Galeria do Ravi!</h1>
+  
+  <button class="btn-entrar" onclick="location.href='galeria.html'">Entrar</button>
 
-    <section class="mensagem">
-        <div class="texto" id="mensagemTexto"></div>
-        <audio autoplay loop>
-            <source src="musica/musica.mp3" type="audio/mpeg">
-        </audio>
-    </section>
-
-    <script src="script.js"></script>
 </body>
 </html>

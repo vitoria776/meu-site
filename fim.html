@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fotos após nascimento - Página 1</title>
+  <link rel="stylesheet" href="Css/style.css">
+</head>
+<body>
+
+  <div class="fotos-ao-redor">
+    <!-- Fotos de 1 a 39 -->
+    <!-- Para exemplo, listamos só algumas. Insira todas conforme necessidade. -->
+    <img src="imagens/apos-nascimento1.jpeg" alt="">
+    <img src="imagens/apos-nascimento2.jpeg" alt="">
+    <img src="imagens/apos-nascimento3.jpeg" alt="">
+    <!-- continue até apos-nascimento39.jpeg -->
+  </div>
+
+  <div class="foto-central">
+    <img src="imagens/minha-vida - Copia.jpeng" alt="Minha Vida">
+    <div class="mensagem" id="mensagem"></div>
+    <span class="cursor"></span>
+  </div>
+
+  <script>
+    const frases = [
+      "Desde que você chegou, minha vida mudou completamente.",
+      "Quando vi pela primeira vez aquele rostinho tão pequenininho e tão frágil, eu soube que você seria minha maior paixão e o motivo do meu viver.",
+      "As pessoas sempre me falaram do quão incrível e enorme é o amor de mãe, e eu sempre duvidei.",
+      "Pensava comigo mesma: como pode alguém amar mais que a própria vida um serzinho que mal nasceu?",
+      "Eu pensava que não era possível eu sentir esse amor, porém tudo mudou quando você nasceu.",
+      "Hoje, você é tudo para mim: uma das coisas mais preciosas que eu tenho.",
+      "Filho, eu te amo! ❤️"
+    ];
+
+    const mensagemDiv = document.getElementById('mensagem');
+    let fraseIndex = 0;
+    let charIndex = 0;
+
+    function digitarFrase() {
+      if (fraseIndex < frases.length) {
+        const frase = frases[fraseIndex];
+        if (charIndex < frase.length) {
+          mensagemDiv.textContent += frase.charAt(charIndex);
+          charIndex++;
+          setTimeout(digitarFrase, 50); // velocidade de digitação
+        } else {
+          mensagemDiv.textContent += "\n\n"; // quebra de linha entre frases
+          fraseIndex++;
+          charIndex = 0;
+          setTimeout(digitarFrase, 700); // pausa antes de começar a próxima frase
+        }
+      }
+    }
+
+    digitarFrase();
+  </script>
+
+</body>
+</html>

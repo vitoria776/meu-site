@@ -178,3 +178,133 @@ body {
     margin-top: 40px;
   }
   
+.menu {
+  width: 100%;
+  background: linear-gradient(45deg, #77a77f, #54a75d);
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(100, 180, 130, 0.4);
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Títulos */
+h1, h2 {
+  font-size: 2.5rem;
+  color: #6a8f71;
+  text-shadow: 1px 1px 4px rgba(106, 143, 113, 0.5);
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: fadeInDown 1.5s ease forwards;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Parágrafos */
+p {
+  max-width: 800px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #4a5a47;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Botões */
+button {
+  font-size: 1.1rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #77a77f, #54a75d);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(100, 180, 130, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 25px rgba(100, 180, 130, 0.6);
+}
+
+/* Formulário */
+form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(125, 170, 163, 0.4);
+  width: 100%;
+  max-width: 600px;
+}
+
+fieldset {
+  border: 2px solid #b9d8d3;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  padding: 0 0.5rem;
+  color: #6a8f71;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid #b9d8d3;
+  border-radius: 10px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  h1, h2 {
+    font-size: 2rem;
+  }
+
+.menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}

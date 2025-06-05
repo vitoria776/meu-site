@@ -1,61 +1,173 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fotos após nascimento - Página 1</title>
-  <link rel="stylesheet" href="Css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Vida</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: linear-gradient(120deg, #e3f2f1, #f1f8e9, #fffde7);
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        color: #333;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+    }
+
+    /* Foto central */
+    .center-photo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70vw;
+        height: 70vh;
+        object-fit: contain;
+        background-color: white;
+        border-radius: 20px;
+        border: 8px solid #b9d8d3;
+        box-shadow: 0 0 25px rgba(0,0,0,0.4);
+        z-index: 5;
+    }
+
+    /* Fotos pequenas na borda */
+    .border-photos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .border-photos img {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 15px;
+        border: 3px solid #b9d8d3;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Texto no centro */
+    .text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.8);
+        padding: 25px 35px;
+        border-radius: 20px;
+        max-width: 600px;
+        text-align: center;
+        z-index: 10;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #4a5a47;
+    }
+
+</style>
 </head>
 <body>
 
-  <div class="fotos-ao-redor">
-    <!-- Fotos de 1 a 39 -->
-    <!-- Para exemplo, listamos só algumas. Insira todas conforme necessidade. -->
-    <img src="imagens/apos-nascimento1.jpeg" alt="">
-    <img src="imagens/apos-nascimento2.jpeg" alt="">
-    <img src="imagens/apos-nascimento3.jpeg" alt="">
-    <!-- continue até apos-nascimento39.jpeg -->
-  </div>
+<img src="Imagens/minha-vida - Copia.jpeg" alt="Foto Principal" class="center-photo">
 
-  <div class="foto-central">
-    <img src="imagens/minha-vida - Copia.jpeng" alt="Minha Vida">
-    <div class="mensagem" id="mensagem"></div>
-    <span class="cursor"></span>
-  </div>
+<div class="border-photos" id="borderPhotos"></div>
 
-  <script>
-    const frases = [
-      "Desde que você chegou, minha vida mudou completamente.",
-      "Quando vi pela primeira vez aquele rostinho tão pequenininho e tão frágil, eu soube que você seria minha maior paixão e o motivo do meu viver.",
-      "As pessoas sempre me falaram do quão incrível e enorme é o amor de mãe, e eu sempre duvidei.",
-      "Pensava comigo mesma: como pode alguém amar mais que a própria vida um serzinho que mal nasceu?",
-      "Eu pensava que não era possível eu sentir esse amor, porém tudo mudou quando você nasceu.",
-      "Hoje, você é tudo para mim: uma das coisas mais preciosas que eu tenho.",
-      "Filho, eu te amo! ❤️"
-    ];
+<div class="text-box" id="textBox"></div>
 
-    const mensagemDiv = document.getElementById('mensagem');
-    let fraseIndex = 0;
-    let charIndex = 0;
+<script>
+    // Gerar fotos na borda
+    const totalFotos = 39;
+    const borderPhotos = document.getElementById('borderPhotos');
+    const fotos = [];
 
-    function digitarFrase() {
-      if (fraseIndex < frases.length) {
-        const frase = frases[fraseIndex];
-        if (charIndex < frase.length) {
-          mensagemDiv.textContent += frase.charAt(charIndex);
-          charIndex++;
-          setTimeout(digitarFrase, 50); // velocidade de digitação
-        } else {
-          mensagemDiv.textContent += "\n\n"; // quebra de linha entre frases
-          fraseIndex++;
-          charIndex = 0;
-          setTimeout(digitarFrase, 700); // pausa antes de começar a próxima frase
-        }
-      }
+    for (let i = 1; i <= totalFotos; i++) {
+        fotos.push(`Imagens/nascido${i}.jpeg`);
     }
 
-    digitarFrase();
-  </script>
+    const largura = window.innerWidth;
+    const altura = window.innerHeight;
+    const espacamento = 75;
 
+    let topo = 0;
+    let esquerda = 0;
+
+    // Topo
+    for (let x = 0; x <= largura - espacamento; x += espacamento) {
+        criarImg(x, topo);
+    }
+    // Lateral direita
+    for (let y = espacamento; y <= altura - espacamento; y += espacamento) {
+        criarImg(largura - espacamento, y);
+    }
+    // Parte de baixo
+    for (let x = largura - espacamento; x >= 0; x -= espacamento) {
+        criarImg(x, altura - espacamento);
+    }
+    // Lateral esquerda
+    for (let y = altura - espacamento; y >= espacamento; y -= espacamento) {
+        criarImg(0, y);
+    }
+
+    function criarImg(x, y) {
+        const img = document.createElement('img');
+        const index = Math.floor(Math.random() * fotos.length);
+        img.src = fotos[index];
+        img.style.left = x + 'px';
+        img.style.top = y + 'px';
+        borderPhotos.appendChild(img);
+    }
+
+    // Mensagem digitando
+    const mensagem = [
+        "Desde que você chegou, minha vida mudou completamente.",
+        "Quando vi pela primeira vez aquele rostinho tão pequenininho e tão frágil, eu soube que você seria minha maior paixão e o motivo do meu viver.",
+        "As pessoas sempre me falaram do quão incrível e enorme é o amor de mãe, e eu sempre duvidei.",
+        "Pensava comigo mesma: como pode alguém amar mais que a própria vida um serzinho que mal nasceu?",
+        "Eu pensava que não era possível eu sentir esse amor, porém tudo mudou quando você nasceu.",
+        "Hoje, você é tudo para mim: uma das coisas mais preciosas que eu tenho.",
+        "Filho, eu te amo! ❤️"
+    ];
+
+    const textBox = document.getElementById('textBox');
+    let fraseIndex = 0;
+
+    function escreverFrase() {
+        if (fraseIndex < mensagem.length) {
+            const p = document.createElement('p');
+            textBox.appendChild(p);
+            digitarTexto(p, mensagem[fraseIndex], 0, () => {
+                fraseIndex++;
+                setTimeout(escreverFrase, 1500);
+            });
+        }
+    }
+
+    function digitarTexto(elemento, texto, i, callback) {
+        if (i < texto.length) {
+            elemento.innerHTML += texto.charAt(i);
+            setTimeout(() => {
+                digitarTexto(elemento, texto, i + 1, callback);
+            }, 40);
+        } else if (callback) {
+            callback();
+        }
+    }
+
+    escreverFrase();
+
+</script>
 </body>
 </html>

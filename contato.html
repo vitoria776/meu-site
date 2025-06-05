@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeria do Ravi</title>
+  <link rel="stylesheet" href="Css/style.css">
+
+</head>
+
+<body>
+    <div class="menu">
+
+        <nav class="menu">
+          <a href="index.html">Galeria</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+    
+    </div>
+
+<section>
+
+    <h2>Fale comigo!</h2>
+    <form onsubmit="return validarFormulario();">
+      <fieldset>
+        <legend>Informações Pessoais</legend>
+        Nome: <input type="text" id="nome"><br><br>
+        Email: <input type="text" id="email"><br><br>
+        Telefone: <input type="tel" id="telefone"><br><br>
+      </fieldset>
+  
+      <fieldset>
+        <legend>Mensagem</legend>
+        Motivo do contato:
+        <select id="motivo">
+          <option value="">Selecione</option>
+          <option value="opniao">Opinião</option>
+          <option value="sugestao">Sugestão</option>
+          <option value="reclamacao">Reclamação</option>
+        </select> <br><br>
+  
+        Mensagem: <br>
+        <textarea id="mensagem"></textarea><br><br>
+  
+        <button type="submit">Enviar</button>
+      </fieldset>
+    </form>
+  
+    <script>
+      function validarFormulario() {
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telefone = document.getElementById("telefone").value.trim();
+        const motivo = document.getElementById("motivo").value;
+        const mensagem = document.getElementById("mensagem").value.trim();
+  
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const telefoneRegex = /^\d{10,11}$/;
+  
+        if (!nome) {
+          alert("Por favor, preencha o nome.");
+          return false;
+        }
+  
+        if (!email || !emailRegex.test(email)) {
+          alert("Por favor, insira um email válido.");
+          return false;
+        }
+  
+        if (!telefone || !telefoneRegex.test(telefone)) {
+          alert("Por favor, insira um telefone válido (somente números).");
+          return false;
+        }
+  
+        if (!motivo) {
+          alert("Por favor, selecione o motivo do contato.");
+          return false;
+        }
+  
+        if (!mensagem) {
+          alert("Por favor, escreva uma mensagem.");
+          return false;
+        }
+  
+        alert("Formulário enviado com sucesso!");
+        return true;
+      }
+    </script>
+
+    <a href="index.html">
+      <button>Voltar</button>
+    </a>
+  
+  </section>
+</body>

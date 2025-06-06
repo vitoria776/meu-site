@@ -1,112 +1,113 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minha Vida</title>
-
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minha Vida</title>
+  <style>
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-        background: linear-gradient(120deg, #e3f2f1, #f1f8e9, #fffde7);
-        font-family: 'Comic Sans MS', cursive, sans-serif;
-        color: #333;
-        overflow: hidden;
-        height: 100vh;
-        width: 100vw;
-        position: relative;
+      background: linear-gradient(120deg, #e3f2f1, #f1f8e9, #fffde7);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #333;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
     }
 
-    /* Container central que agrupa foto e botão */
     .container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 5;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 5;
     }
 
     .center-photo {
-        width: 70vw;
-        height: 70vh;
-        object-fit: contain;
-        background-color: white;
-        border-radius: 20px;
-        border: 8px solid #b9d8d3;
-        box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      width: 70vw;
+      height: 70vh;
+      object-fit: contain;
+      background-color: white;
+      border-radius: 20px;
+      border: 8px solid #b9d8d3;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
     }
 
-    .btn-proximo {
-        margin-top: 20px;
-        background-color: #87c5ab;
-        color: white;
-        border: none;
-        padding: 12px 25px;
-        font-size: 1rem;
-        border-radius: 12px;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease, transform 0.2s ease;
+    .btn-proximo, #btn-musica {
+      margin-top: 20px;
+      background-color: #87c5ab;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .btn-proximo:hover {
-        background-color: #5a9b85;
-        transform: scale(1.05);
+    .btn-proximo:hover, #btn-musica:hover {
+      background-color: #5a9b85;
+      transform: scale(1.05);
     }
 
     .border-photos {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .border-photos img {
-        position: absolute;
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        border-radius: 15px;
-        border: 3px solid #b9d8d3;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid #b9d8d3;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .text-box {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.8);
-        padding: 25px 35px;
-        border-radius: 20px;
-        max-width: 600px;
-        text-align: center;
-        z-index: 10;
-        box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        font-size: 1.2rem;
-        line-height: 1.6;
-        color: #4a5a47;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px 35px;
+      border-radius: 20px;
+      max-width: 600px;
+      text-align: center;
+      z-index: 10;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #4a5a47;
     }
-
-</style>
+  </style>
 </head>
 <body>
 
-<!-- Foto principal e botão agrupados -->
+<audio id="musica" loop>
+  <source src="audio/musica.mp3" type="audio/mpeg" />
+</audio>
+
 <div class="container">
-    <img src="Imagens/minha-vida - Copia.jpeg" alt="Foto Principal" class="center-photo">
-    <button class="btn-proximo" onclick="location.href='index.html'">Voltar para o início</button>
+  <img src="Imagens/minha-vida - Copia.jpeg" alt="Foto Principal" class="center-photo" />
+  <button class="btn-proximo" onclick="location.href='apos-nascimento10.html'">Voltar</button>
+  <button id="btn-musica">Iniciar Música</button>
 </div>
 
 <div class="border-photos" id="borderPhotos"></div>
@@ -114,82 +115,102 @@
 <div class="text-box" id="textBox"></div>
 
 <script>
-    const totalFotos = 39;
-    const borderPhotos = document.getElementById('borderPhotos');
-    const fotos = [];
+  const totalFotos = 39;
+  const borderPhotos = document.getElementById('borderPhotos');
+  const fotos = [];
 
-    for (let i = 1; i <= totalFotos; i++) {
-        fotos.push(`Imagens/nascido${i}.jpeg`);
+  for (let i = 1; i <= totalFotos; i++) {
+    fotos.push(`Imagens/nascido${i}.jpeg`);
+  }
+
+  const largura = window.innerWidth;
+  const altura = window.innerHeight;
+  const espacamento = 75;
+
+  function criarImg(x, y) {
+    const img = document.createElement('img');
+    const index = Math.floor(Math.random() * fotos.length);
+    img.src = fotos[index];
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+    borderPhotos.appendChild(img);
+  }
+
+  for (let x = 0; x <= largura - espacamento; x += espacamento) {
+    criarImg(x, 0); // Topo
+  }
+
+  for (let y = espacamento; y <= altura - espacamento; y += espacamento) {
+    criarImg(largura - espacamento, y); // Direita
+  }
+
+  for (let x = largura - espacamento; x >= 0; x -= espacamento) {
+    criarImg(x, altura - espacamento); // Baixo
+  }
+
+  for (let y = altura - espacamento; y >= espacamento; y -= espacamento) {
+    criarImg(0, y); // Esquerda
+  }
+
+  const mensagem = [
+    "Desde que você chegou, minha vida mudou completamente.",
+    "Quando vi pela primeira vez aquele rostinho tão pequenininho e tão frágil, eu soube que você seria minha maior paixão e o motivo do meu viver.",
+    "As pessoas sempre me falaram do quão incrível e enorme é o amor de mãe, e eu sempre duvidei.",
+    "Pensava comigo mesma: como pode alguém amar mais que a própria vida um serzinho que mal nasceu?",
+    "Eu pensava que não era possível eu sentir esse amor, porém tudo mudou quando você nasceu.",
+    "Hoje, você é tudo para mim: uma das coisas mais precisas que eu tenho.",
+    "Filho, eu te amo! ❤️"
+  ];
+
+  const textBox = document.getElementById('textBox');
+  let fraseIndex = 0;
+
+  function escreverFrase() {
+    if (fraseIndex < mensagem.length) {
+      const p = document.createElement('p');
+      textBox.appendChild(p);
+      digitarTexto(p, mensagem[fraseIndex], 0, () => {
+        fraseIndex++;
+        setTimeout(escreverFrase, 1500);
+      });
     }
+  }
 
-    const largura = window.innerWidth;
-    const altura = window.innerHeight;
-    const espacamento = 75;
-
-    function criarImg(x, y) {
-        const img = document.createElement('img');
-        const index = Math.floor(Math.random() * fotos.length);
-        img.src = fotos[index];
-        img.style.left = x + 'px';
-        img.style.top = y + 'px';
-        borderPhotos.appendChild(img);
+  function digitarTexto(elemento, texto, i, callback) {
+    if (i < texto.length) {
+      elemento.innerHTML += texto.charAt(i);
+      setTimeout(() => {
+        digitarTexto(elemento, texto, i + 1, callback);
+      }, 40);
+    } else if (callback) {
+      callback();
     }
+  }
 
-    // Topo
-    for (let x = 0; x <= largura - espacamento; x += espacamento) {
-        criarImg(x, 0);
-    }
-    // Direita
-    for (let y = espacamento; y <= altura - espacamento; y += espacamento) {
-        criarImg(largura - espacamento, y);
-    }
-    // Baixo
-    for (let x = largura - espacamento; x >= 0; x -= espacamento) {
-        criarImg(x, altura - espacamento);
-    }
-    // Esquerda
-    for (let y = altura - espacamento; y >= espacamento; y -= espacamento) {
-        criarImg(0, y);
-    }
+  escreverFrase();
 
-    // Mensagem com efeito de digitação
-    const mensagem = [
-        "Desde que você chegou, minha vida mudou completamente.",
-        "Quando vi pela primeira vez aquele rostinho tão pequenininho e tão frágil, eu soube que você seria minha maior paixão e o motivo do meu viver.",
-        "As pessoas sempre me falaram do quão incrível e enorme é o amor de mãe, e eu sempre duvidei.",
-        "Pensava comigo mesma: como pode alguém amar mais que a própria vida um serzinho que mal nasceu?",
-        "Eu pensava que não era possível eu sentir esse amor, porém tudo mudou quando você nasceu.",
-        "Hoje, você é tudo para mim: uma das coisas mais preciosas que eu tenho.",
-        "Filho, eu te amo! ❤️"
-    ];
+  const btnMusica = document.getElementById('btn-musica');
+  const musica = document.getElementById('musica');
 
-    const textBox = document.getElementById('textBox');
-    let fraseIndex = 0;
-
-    function escreverFrase() {
-        if (fraseIndex < mensagem.length) {
-            const p = document.createElement('p');
-            textBox.appendChild(p);
-            digitarTexto(p, mensagem[fraseIndex], 0, () => {
-                fraseIndex++;
-                setTimeout(escreverFrase, 1500);
-            });
-        }
+  btnMusica.addEventListener('click', () => {
+    if (musica.paused) {
+      musica.play().catch(() => {});
+      btnMusica.textContent = 'Parar Música';
+    } else {
+      musica.pause();
+      musica.currentTime = 0;
+      btnMusica.textContent = 'Iniciar Música';
     }
+  });
 
-    function digitarTexto(elemento, texto, i, callback) {
-        if (i < texto.length) {
-            elemento.innerHTML += texto.charAt(i);
-            setTimeout(() => {
-                digitarTexto(elemento, texto, i + 1, callback);
-            }, 40);
-        } else if (callback) {
-            callback();
-        }
+  // Se veio da página nascimento10, tocar música automaticamente e atualizar botão
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('tocarMusica') === 'sim') {
+      musica.play().catch(() => {});
+      btnMusica.textContent = 'Parar Música';
+      localStorage.removeItem('tocarMusica');
     }
-
-    escreverFrase();
+  });
 </script>
-
 </body>
 </html>
